@@ -116,7 +116,7 @@ class FlipCardState extends State<FlipCard> with TickerProviderStateMixin {
               ? null
               : () {
                   flipCardController.state!.flipCard();
-                  onTap?.call();
+                  widget.onTap?.call();
                 },
           splashColor: widget.splashColor,
           focusColor: widget.focusColor,
