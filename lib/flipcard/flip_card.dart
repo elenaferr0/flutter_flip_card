@@ -18,6 +18,8 @@ class FlipCard extends StatefulWidget {
   /// [onTapFlipping]  When enabled, the card will flip automatically when touched.
   final bool onTapFlipping;
 
+  final VoidCallback? onTap;
+
   /// [axis] The flip axis [Horizontal] and [Vertical]
   final FlipAxis axis;
 
@@ -41,6 +43,7 @@ class FlipCard extends StatefulWidget {
     this.focusColor,
     this.splashColor,
     this.onTapFlipping = false,
+    this.onTap,
     this.disableSplashEffect = false,
     required this.frontWidget,
     required this.backWidget,
@@ -113,6 +116,7 @@ class FlipCardState extends State<FlipCard> with TickerProviderStateMixin {
               ? null
               : () {
                   flipCardController.state!.flipCard();
+                  onTap?.call();
                 },
           splashColor: widget.splashColor,
           focusColor: widget.focusColor,
